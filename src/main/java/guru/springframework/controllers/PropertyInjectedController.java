@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 
-/**
- * Created by jt on 5/24/17.
- */
 @Controller
 public class PropertyInjectedController {
 
@@ -16,7 +13,7 @@ public class PropertyInjectedController {
     @Qualifier("greetingServiceImpl")
     public GreetingService greetingServiceImpl;
 
-    public String sayHello(){
+    public String sayHello() {
         return greetingServiceImpl.sayGreeting();
     }
 

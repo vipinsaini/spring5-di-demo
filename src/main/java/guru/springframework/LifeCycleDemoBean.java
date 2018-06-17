@@ -1,7 +1,11 @@
 package guru.springframework;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -9,12 +13,9 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-/**
- * Created by jt on 6/5/17.
- */
 @Component
 public class LifeCycleDemoBean implements InitializingBean, DisposableBean, BeanNameAware,
-        BeanFactoryAware, ApplicationContextAware{
+        BeanFactoryAware, ApplicationContextAware {
 
 
     public LifeCycleDemoBean() {
@@ -50,7 +51,7 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
     }
 
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         System.out.println("## The Post Construct annotated method has been called");
     }
 
@@ -59,11 +60,11 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
         System.out.println("## The Predestroy annotated method has been called");
     }
 
-    public void beforeInit(){
+    public void beforeInit() {
         System.out.println("## - Before Init - Called by Bean Post Processor");
     }
 
-    public void afterInit(){
+    public void afterInit() {
         System.out.println("## - After init called by Bean Post Processor");
     }
 }
